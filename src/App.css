@@ -109,3 +109,11 @@ h2 {
   gap: 2rem;
   font-weight: 600;
 }
+
+.chart-container {
+  width: 100%;
+  background: #182231;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
