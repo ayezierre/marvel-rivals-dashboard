@@ -98,12 +98,6 @@ h2 {
   margin: 0;
 }
 
-.match-result {
-  margin: 0.25rem 0 0;
-  color: #9ca3af;
-  font-size: 0.85rem;
-}
-
 .match-stats {
   display: flex;
   gap: 2rem;
@@ -116,4 +110,52 @@ h2 {
   border-radius: 14px;
   padding: 1.5rem;
   box-sizing: border-box;
+}
+
+.match-map {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+
+.dashboard-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.dashboard-filter label {
+  color: #d1d5db;
+  font-weight: 600;
+}
+
+.dashboard-filter select {
+  background-color: #1f2937;
+  color: #ffffff;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.match-result {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 8px 0 0;
+}
+
+.match-result.win {
+  background-color: #14532d;
+  color: #86efac;
+}
+
+.match-result.loss {
+  background-color: #7f1d1d;
+  color: #fca5a5;
 }

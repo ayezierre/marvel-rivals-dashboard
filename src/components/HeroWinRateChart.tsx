@@ -1,31 +1,58 @@
 import {
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    Tooltip,
-    ResponsiveContainer,
-} from 'recharts'
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
-import type { HeroStats } from '../types/HeroStats'
+import type { HeroStats } from "../types/HeroStats";
 
 type HeroWinRateChartProps = {
-    heroes: HeroStats[]
+  heroes: HeroStats[];
+};
+
+function HeroWinRateChart({ heroes }: HeroWinRateChartProps) {
+  return (
+    <div className="chart-container">
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart
+          data={heroes}
+          margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+        >
+          <XAxis
+            dataKey="heroName"
+            tick={{ fill: "#d1d5db", fontSize: 12 }}
+            interval={0}
+          />
+          <YAxis domain={[0, 100]} />
+          <Tooltip
+            formatter={(value) => `${Number(value).toFixed(0)}%`}
+            cursor={false}
+            contentStyle={{
+              backgroundColor: "#1f2937",
+              border: "1px solid #374151",
+              borderRadius: "8px",
+              color: "#ffffff",
+            }}
+            labelStyle={{
+              color: "#ffffff",
+            }}
+            itemStyle={{
+              color: "#a5b4fc",
+            }}
+          />
+          <Bar
+            dataKey="winRate"
+            name="Win Rate"
+            fill="#6366f1"
+            radius={[6, 6, 0, 0]}
+          />{" "}
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  );
 }
 
-function HeroWinRateChart({heroes}: HeroWinRateChartProps) {
-    return (
-        <div className="chart-container">
-            <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={heroes}>
-                    <XAxis dataKey="heroName" />
-                    <YAxis domain={[0, 1]} />
-                    <Tooltip />
-                    <Bar dataKey="winRate" fill="#8884d8" />
-                </BarChart>
-            </ResponsiveContainer>
-        </div>
-    )
-}
-
-export default HeroWinRateChart
+export default HeroWinRateChart;

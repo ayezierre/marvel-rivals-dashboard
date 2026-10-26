@@ -1,22 +1,20 @@
-import type { Match } from '../types/Match'
+import type { Match } from "../types/Match";
 
 type MatchCardProps = {
-  match: Match
-}
+  match: Match;
+};
 
 function MatchCard({ match }: MatchCardProps) {
-  const kd =
-    match.deaths > 0
-      ? match.kills / match.deaths
-      : match.kills
+  const kd = match.deaths > 0 ? match.kills / match.deaths : match.kills;
 
   return (
     <div className={`match-card ${match.result}`}>
       <div>
         <h3>{match.hero}</h3>
-        <p className="match-result">
+        <p className="match-map">Map: {match.map}</p>{" "}
+        <p className={`match-result ${match.result}`}>
           {match.result.toUpperCase()}
-        </p>
+        </p>{" "}
       </div>
 
       <div className="match-stats">
@@ -24,12 +22,10 @@ function MatchCard({ match }: MatchCardProps) {
           {match.kills} / {match.deaths} / {match.assists}
         </span>
 
-        <span>
-          K/D {kd.toFixed(2)}
-        </span>
+        <span>K/D {kd.toFixed(2)}</span>
       </div>
     </div>
-  )
+  );
 }
 
-export default MatchCard
+export default MatchCard;
